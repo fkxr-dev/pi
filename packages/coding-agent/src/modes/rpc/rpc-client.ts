@@ -275,6 +275,15 @@ export class RpcClient {
 	}
 
 	/**
+	 * Get the session's resolved models.
+	 */
+	async getScopedModels(): Promise<{ model: ModelInfo; thinkingLevel?: ThinkingLevel }[]> {
+		const response = await this.send({ type: "get_available_models" });
+		return this.getData<{ scopedModels: { model: ModelInfo; thinkingLevel?: ThinkingLevel }[] }>(response)
+			.scopedModels;
+	}
+
+	/**
 	 * Set thinking level.
 	 */
 	async setThinkingLevel(level: ThinkingLevel): Promise<void> {

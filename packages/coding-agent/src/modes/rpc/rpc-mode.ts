@@ -489,7 +489,7 @@ export async function runRpcMode(runtimeHost: AgentSessionRuntime): Promise<neve
 
 			case "get_available_models": {
 				const models = session.modelRuntime.getAvailableSnapshot();
-				return success(id, "get_available_models", { models });
+				return success(id, "get_available_models", { models, scopedModels: [...session.scopedModels] });
 			}
 
 			// =================================================================
