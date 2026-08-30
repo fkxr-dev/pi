@@ -287,14 +287,17 @@ List all configured models.
 {"type": "get_available_models"}
 ```
 
-Response contains an array of full [Model](#model) objects:
+The `models` array contains full [Model](#model) objects.
+The `scopedModels` array contains [ScopedModel](#scopedmodel) objects.
+
 ```json
 {
   "type": "response",
   "command": "get_available_models",
   "success": true,
   "data": {
-    "models": [...]
+    "models": [...],
+    "scopedModels": [...]
   }
 }
 ```
@@ -1427,6 +1430,17 @@ Source files:
   }
 }
 ```
+
+### ScopedModel
+
+```json
+{
+  "model": {...},
+  "thinkingLevel": "high"
+}
+```
+
+The `thinkingLevel` field is optional.
 
 ### UserMessage
 
